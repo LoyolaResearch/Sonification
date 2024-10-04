@@ -1,0 +1,14 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <BaseOutputPath>C:\tmp\Chess\bin</BaseOutputPath>
+    <BaseIntermediateOutputPath>C:\tmp\Chess\obj</BaseIntermediateOutputPath>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\pgn.Data\pgn.Data.csproj" />
+    <ProjectReference Include="..\pgn.Parse\pgn.Parse.fsproj" />
+  </ItemGroup>
+
+</Project>

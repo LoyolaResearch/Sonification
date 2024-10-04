@@ -1,0 +1,2 @@
+@echo off
+start NumbersSonification/NumbersSonification.sln

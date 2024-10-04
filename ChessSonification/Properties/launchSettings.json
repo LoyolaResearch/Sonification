@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "ChessSonification": {
+      "commandName": "Project",
+      "workingDirectory": "c:\\tmp\\Chess\\"
+    }
+  }
+}

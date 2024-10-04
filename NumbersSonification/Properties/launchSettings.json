@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "NumbersSonification": {
+      "commandName": "Project",
+      "workingDirectory": "c:\\tmp\\Numbers\\"
+    }
+  }
+}

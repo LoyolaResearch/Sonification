@@ -1,0 +1,9 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <BaseOutputPath>C:\tmp\Chess\bin</BaseOutputPath>
+    <BaseIntermediateOutputPath>C:\tmp\Chess\obj</BaseIntermediateOutputPath>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+</Project>

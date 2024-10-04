@@ -1,0 +1,222 @@
+[Event "Paris it"]
+[Site "Paris"]
+[Date "1858.??.??"]
+[Round "?"]
+[White "Morphy, Paul "]
+[Black "Duke Karl Count Isouard"]
+[Result "1-0"]
+[WhiteElo ""]
+[BlackElo ""]
+[ECO "C41"]
+
+1.e4 e5 2.Nf3 d6 3.d4 Bg4 4.dxe5 Bxf3 5.Qxf3 dxe5 6.Bc4 Nf6 7.Qb3 Qe7 8.Nc3 c6
+9.Bg5 b5 10.Nxb5 cxb5 11.Bxb5+ Nbd7 12.O-O-O Rd8 13.Rxd7 Rxd7 14.Rd1 Qe6
+15.Bxd7+ Nxd7 16.Qb8+ Nxb8 17.Rd8+  1-0
+
+[Event "Hoogovens Group A"]
+[Site "Wijk aan Zee NED"]
+[Date "1999.01.20"]
+[EventDate "1999.01.16"]
+[Round "4"]
+[Result "1-0"]
+[White "Garry Kasparov"]
+[Black "Veselin Topalov"]
+[ECO "B07"]
+[WhiteElo "2812"]
+[BlackElo "2700"]
+[PlyCount "87"]
+
+1. e4 d6 2. d4 Nf6 3. Nc3 g6 4. Be3 Bg7 5. Qd2 c6 6. f3 b5
+7. Nge2 Nbd7 8. Bh6 Bxh6 9. Qxh6 Bb7 10. a3 e5 11. O-O-O Qe7
+12. Kb1 a6 13. Nc1 O-O-O 14. Nb3 exd4 15. Rxd4 c5 16. Rd1 Nb6
+17. g3 Kb8 18. Na5 Ba8 19. Bh3 d5 20. Qf4+ Ka7 21. Rhe1 d4
+22. Nd5 Nbxd5 23. exd5 Qd6 24. Rxd4 cxd4 25. Re7+ Kb6
+26. Qxd4+ Kxa5 27. b4+ Ka4 28. Qc3 Qxd5 29. Ra7 Bb7 30. Rxb7
+Qc4 31. Qxf6 Kxa3 32. Qxa6+ Kxb4 33. c3+ Kxc3 34. Qa1+ Kd2
+35. Qb2+ Kd1 36. Bf1 Rd2 37. Rd7 Rxd7 38. Bxc4 bxc4 39. Qxh8
+Rd3 40. Qa8 c3 41. Qa4+ Ke1 42. f4 f5 43. Kc1 Rd2 44. Qa7 1-0
+
+[Event "Third Rosenwald Trophy"]
+[Site "New York, NY USA"]
+[Date "1956.10.17"]
+[EventDate "1956.10.07"]
+[Round "8"]
+[Result "0-1"]
+[White "Donald Byrne"]
+[Black "Robert James Fischer"]
+[ECO "D92"]
+[WhiteElo "?"]
+[BlackElo "?"]
+[PlyCount "82"]
+
+1.Nf3 Nf6 2.c4 g6 3.Nc3 Bg7 4.d4 O-O 5.Bf4 d5 6.Qb3 dxc4 7.Qxc4 c6 8.e4 Nbd7
+9.Rd1 Nb6 10.Qc5 Bg4 11.Bg5 Na4 12.Qa3 Nxc3 13.bxc3 Nxe4 14.Bxe7 Qb6 15.Bc4 Nxc3
+16.Bc5 Rfe8+ 17.Kf1 Be6 18.Bxb6 Bxc4+ 19.Kg1 Ne2+ 20.Kf1 Nxd4+ 21.Kg1 Ne2+
+22.Kf1 Nc3+ 23.Kg1 axb6 24.Qb4 Ra4 25.Qxb6 Nxd1 26.h3 Rxa2 27.Kh2 Nxf2 28.Re1 Rxe1
+29.Qd8+ Bf8 30.Nxe1 Bd5 31.Nf3 Ne4 32.Qb8 b5 33.h4 h5 34.Ne5 Kg7 35.Kg1 Bc5+
+36.Kf1 Ng3+ 37.Ke1 Bb4+ 38.Kd1 Bb3+ 39.Kc1 Ne2+ 40.Kb1 Nc3+ 41.Kc1 Rc2+  0-1
+
+[Event "USA-ch"]
+[Site "New York"]
+[Date "1963.??.??"]
+[Round "3"]
+[White "Byrne, Robert E"]
+[Black "Fischer, Robert James"]
+[Result "0-1"]
+[WhiteElo ""]
+[BlackElo ""]
+[ECO "D71"]
+
+1.d4 Nf6 2.c4 g6 3.g3 c6 4.Bg2 d5 5.cxd5 cxd5 6.Nc3 Bg7 7.e3 O-O 8.Nge2 Nc6
+9.O-O b6 10.b3 Ba6 11.Ba3 Re8 12.Qd2 e5 13.dxe5 Nxe5 14.Rfd1 Nd3 15.Qc2 Nxf2
+16.Kxf2 Ng4+ 17.Kg1 Nxe3 18.Qd2 Nxg2 19.Kxg2 d4 20.Nxd4 Bb7+ 21.Kf1 Qd7  0-1
+
+[Event "Spassky - Fischer World Championship Match"]
+[Site "Reykjavik ISL"]
+[Date "1972.07.23"]
+[EventDate "?"]
+[Round "6"]
+[Result "1-0"]
+[White "Robert James Fischer"]
+[Black "Boris Spassky"]
+[ECO "D59"]
+[WhiteElo "?"]
+[BlackElo "?"]
+[PlyCount "81"]
+
+1. c4 e6 2. Nf3 d5 3. d4 Nf6 4. Nc3 Be7 5. Bg5 O-O 6. e3 h6
+7. Bh4 b6 8. cxd5 Nxd5 9. Bxe7 Qxe7 10. Nxd5 exd5 11. Rc1 Be6
+12. Qa4 c5 13. Qa3 Rc8 14. Bb5 a6 15. dxc5 bxc5 16. O-O Ra7
+17. Be2 Nd7 18. Nd4 Qf8 19. Nxe6 fxe6 20. e4 d4 21. f4 Qe7
+22. e5 Rb8 23. Bc4 Kh8 24. Qh3 Nf8 25. b3 a5 26. f5 exf5
+27. Rxf5 Nh7 28. Rcf1 Qd8 29. Qg3 Re7 30. h4 Rbb7 31. e6 Rbc7
+32. Qe5 Qe8 33. a4 Qd8 34. R1f2 Qe8 35. R2f3 Qd8 36. Bd3 Qe8
+37. Qe4 Nf6 38. Rxf6 gxf6 39. Rxf6 Kg8 40. Bc4 Kh8 41. Qf4 1-0
+
+[Event "CAN-op"]
+[Site "Montreal"]
+[Date "1956.??.??"]
+[Round "?"]
+[White "Fischer, Robert James"]
+[Black "Matthai, H."]
+[Result "1/2-1/2"]
+[WhiteElo ""]
+[BlackElo ""]
+[ECO "B77"]
+
+1.e4 c5 2.Nf3 d6 3.d4 cxd4 4.Nxd4 g6 5.Nc3 Bg7 6.Be3 Nf6 7.f3 Nc6 8.Qd2 O-O
+9.Bc4 Bd7 10.h4 Rc8 11.Bb3 Qa5 12.O-O-O Nh5 13.g4 Nxd4 14.Bxd4 Bxd4 15.Qxd4 Nf4
+16.Kb1 Ne6 17.Qd2 Rfe8 18.f4 Nc5 19.h5 Nxb3 20.axb3 Bxg4 21.Rdg1 f5 22.hxg6 hxg6
+23.b4 Qxb4 24.Rxg4 fxg4 25.f5 Rxc3 26.fxg6 Rh3 27.Qxb4 Rxh1+ 28.Ka2 Kg7 29.e5 dxe5
+30.Qxb7 Rhh8 31.Qe4 Kf6 32.Qxg4 Reg8 33.b4 Rxg6 34.Qf3+ Kg7 35.Qe3 Re6 36.Qxa7 Rd8
+37.Qg1+ Kf7 38.b5 Rdd6 39.c4 e4 40.c5 Rd2+ 41.Kb3 e3 42.Kc3 Rf2 43.c6 Rf5
+44.Qb1 Kf6 45.Kd3 e2 46.c7 Rc5 47.b6 e1=Q 48.Qxe1 Rxe1 49.b7 Rxc7 50.b8=Q Rd7+
+51.Kc2 Re2+ 52.Kc3 Re3+ 53.Kc2 Rd6 54.Qh8+ Kg5 55.Qg8+ Kf4 56.Qg2 Re5 57.Qh2+ Kf5
+58.Qh5+ Ke6 59.Qg4+ Rf5 60.Qe4+ Re5 61.Qg4+ Kd5 62.Qf3+ Re4 63.Kd3 Ke5+ 64.Kc3 Rdd4
+65.Qh5+ Kd6 66.Qg6+ Kc7 67.Qg7 Rd6 68.Qh7 Re5 69.Qg7 Re3+ 70.Kc4 Re4+ 71.Kc3 Kd7
+72.Qf7 Re5 73.Kc4 Ra5 74.Kb4 Rdd5 75.Kc4 Rac5+ 76.Kb3 Re5 77.Qg6 Rf5 78.Qg7 Rce5
+79.Kc4 Rg5 80.Qh7 Ref5 81.Kd4 Ra5 82.Ke3 Ra3+ 83.Kf4 Rga5 84.Qf7 Rc5 85.Ke4 Rg5
+86.Kf4 Rga5 87.Ke4 R5a4+ 88.Kd5 Ra5+ 89.Ke4 Rh3 90.Kf4 Kd6 91.Qg6+ e6 92.Qe8 Ra4+
+93.Kg5 Rg3+ 94.Kh5 Ra5+ 95.Kh4 Rga3 96.Qd8+ Ke5 97.Qc7+ Ke4 98.Qc4+ Ke5 99.Qc7+ Kf6
+100.Qf4+ Rf5 101.Qd4+ Kg6 102.Qe4 Ra6 103.Qc4 Rd6 104.Qc8 e5 105.Qg8+ Kf6
+106.Qf8+ Ke6 107.Qe8+ Kd5 108.Qb5+  1/2-1/2
+
+[Event "Moscow"]
+[Site "Moscow"]
+[Date "1978.??.??"]
+[Round "?"]
+[White "Kasparov, Gary"]
+[Black "Butnorius, Algimantas"]
+[Result "1-0"]
+[WhiteElo ""]
+[BlackElo ""]
+[ECO "E14"]
+
+1.d4 Nf6 2.c4 e6 3.Nf3 Bb4+ 4.Nbd2 O-O 5.e3 b6 6.Bd3 Bb7 7.O-O d5 8.a3 Bxd2
+9.Bxd2 Nbd7 10.cxd5 Bxd5 11.b4 c5 12.Rc1 cxd4 13.Nxd4 Ne5 14.Ba6 Ne4 15.Be1 Qg5
+16.f4 Qg6 17.fxe5 Nc5 18.Bg3 Nxa6 19.Nf5 Rae8 20.Nd6 Re7 21.Rf4 h5 22.e4 Ba8
+23.Bh4 Rd7 24.Rc3 Qh6 25.Qf1 Nc7 26.Rcf3 f5 27.exf6 Rxd6 28.f7+ Kh7 29.Be7 e5
+30.Bxf8 exf4 31.Bxd6 Qxd6 32.Qd3 Qe7 33.Qc4 Kh6 34.Rxf4 Ne6 35.Qc8 Qd6 36.Qh8+ Kg6
+37.f8=N+ Nxf8 38.Qxf8 Qd1+ 39.Kf2 Qd2+ 40.Kg3 Qe1+ 41.Kh3  1-0
+
+[Event "URS-ch46"]
+[Site "Tbilisi"]
+[Date "1978.??.??"]
+[Round "?"]
+[White "Mikhalchishin, Adrian"]
+[Black "Kasparov, Gary"]
+[Result "1-0"]
+[WhiteElo "2460"]
+[BlackElo ""]
+[ECO "B82"]
+
+1.e4 c5 2.Nf3 d6 3.d4 cxd4 4.Nxd4 Nf6 5.Nc3 e6 6.f4 a6 7.Qf3 Qb6 8.Nb3 Qc7
+9.Bd3 b5 10.g4 b4 11.Ne2 Bb7 12.g5 Nfd7 13.Bd2 Nc6 14.Nbd4 Nc5 15.Nxc6 Qxc6
+16.Nd4 Qd7 17.O-O-O Qa4 18.Kb1 b3 19.Nxb3 Nxe4 20.Qf1 g6 21.Be1 Bg7 22.h4 O-O
+23.h5 Nc5 24.Rh4 Nxd3 25.Rxd3 Be4 26.hxg6 fxg6 27.Rc3 Rac8 28.Rh2 Bf5 29.Qf2 Bxc3
+30.Bxc3 e5 31.fxe5 Bd3 32.Qe3 Rf1+ 33.Nc1 Rxc3 34.bxc3 Qb5+ 35.Ka1 Bc4 36.exd6 Bf7
+37.Rf2 Rxf2 38.Qxf2 Qxg5 39.Kb2 h5 40.Qd4 h4 41.Nd3 h3 42.d7 Qd8 43.Ne5 h2
+44.Nc6 Qxd7 45.Qxd7 h1=Q 46.Ne5 Qf1 47.Nxf7 Qxf7 48.Qc8+ Kg7 49.Qxa6 g5 50.a4 g4
+51.Qb5 Qg6 52.a5 g3 53.a6 g2 54.Qb7+ Kh6 55.a7 g1=Q 56.a8=Q Q6b6+ 57.Qxb6+ Qxb6+
+58.Ka2 Qe6+ 59.Ka1 Qc4 60.Qf8+ Kg6 61.Qb4 Qf1+ 62.Kb2 Kh7 63.Qe4+ Kg8 64.Qd5+ Kh8
+65.Qh5+ Kg8 66.Qg5+ Kh8 67.Qd8+ Kh7 68.Qd7+ Kg8 69.Qe8+ Kg7 70.Qe7+ Kg8 71.Qd8+ Kh7
+72.Qd7+ Kh8 73.Qd4+ Kg8 74.c4 Qf8 75.Qd5+ Kh8 76.Qe5+ Kh7 77.Qh5+ Kg8 78.Qd5+ Kh7
+79.c5 Qb8+ 80.Kc3 Kh8 81.Qd4+ Kg8 82.c6  1-0
+
+[Event "URS-ch49"]
+[Site "Frunze"]
+[Date "1981.??.??"]
+[Round "?"]
+[White "Kasparov, Gary"]
+[Black "Beliavsky, Alexander G"]
+[Result "1-0"]
+[WhiteElo "2630"]
+[BlackElo "2615"]
+[ECO "D18"]
+
+1.d4 d5 2.c4 c6 3.Nf3 Nf6 4.Nc3 dxc4 5.a4 Bf5 6.e3 e6 7.Bxc4 Bb4 8.O-O Nbd7
+9.Qb3 a5 10.Na2 Be7 11.Nh4 Bg6 12.g3 Qc8 13.Nc3 O-O 14.Nxg6 hxg6 15.Rd1 e5
+16.Bf1 Bb4 17.Bg2 Re8 18.Na2 Bf8 19.Bd2 g5 20.Rac1 g4 21.Nc3 Qb8 22.Qc2 Qa7
+23.d5 cxd5 24.Nxd5 Nxd5 25.Bxd5 Nf6 26.Ba2 b6 27.Qf5 Qb7 28.Bc3 Qf3 29.Qxf3 gxf3
+30.g4 Nxg4 31.Rd7 Nh6 32.Bd5 Rac8 33.Bxf3 Bb4 34.Bd5 Red8 35.Rxd8+ Rxd8 36.e4 Rc8
+37.f3 Bd6 38.Kf2 Kf8 39.Ke2 f6 40.h4 Nf7 41.Kd3 Ke8 42.Rg1 Kf8 43.Rb1 Nh8
+44.h5 Nf7 45.b4 axb4 46.Bxb4 Rd8 47.Bxd6+ Rxd6 48.Kc4 Ng5 49.Rb3 Ke7 50.Kb5 f5
+51.Ka6 f4 52.Kb7 Rh6 53.Rxb6 Rxb6+ 54.Kxb6 Nxf3 55.a5 Nd2 56.a6 f3 57.a7 f2
+58.a8=Q f1=Q 59.Kc7 Qc1+ 60.Bc6 Nxe4 61.Qe8+ Kf6 62.Qg6+ Ke7 63.Qxg7+ Ke6
+64.Qg4+ Kf7 65.Qg6+ Kf8 66.h6  1-0
+
+[Event "WchT U26"]
+[Site "Graz"]
+[Date "1981.??.??"]
+[Round "?"]
+[White "Kasparov, Gary"]
+[Black "Fedorowicz, John P"]
+[Result "1-0"]
+[WhiteElo "2630"]
+[BlackElo "2455"]
+[ECO "E12"]
+
+1.d4 Nf6 2.c4 e6 3.Nf3 b6 4.a3 c5 5.d5 Ba6 6.Qc2 exd5 7.cxd5 g6 8.Nc3 Bg7
+9.g3 O-O 10.Bg2 d6 11.O-O Re8 12.Re1 Qc7 13.Bf4 Nh5 14.Bd2 Nd7 15.Qa4 Bb7
+16.Qh4 a6 17.Rac1 b5 18.b4 Qd8 19.Bg5 f6 20.Bd2 f5 21.Bg5 Qb6 22.e4 cxb4
+23.axb4 Rac8 24.Be3 Qd8 25.Bg5 Qb6 26.exf5 Rxe1+ 27.Rxe1 Bxc3 28.Re7 Rc4
+29.Qh3 Bc8 30.fxg6 Ndf6 31.Bxf6 Nxf6 32.gxh7+ Kf8 33.h8=Q+ Kxe7 34.Qg7+  1-0
+
+[Event "Live Chess"]
+[Site "Chess.com"]
+[Date "2015.03.31"]
+[Round "?"]
+[White "JackOfAllHobbies"]
+[Black "johnpanageas"]
+[Result "1-0"]
+[ECO "B02"]
+[WhiteElo "837"]
+[BlackElo "794"]
+[TimeControl "300"]
+[EndTime "13:09:57 GMT+0000"]
+[Termination "JackOfAllHobbies won by checkmate"]
+
+1.e4 Nf6 2.e5 Ne4 3.d3 Nc5 4.d4 Ne4 5.Qd3 d5 6.exd6 Nxd6 7.Nf3 b5 8.Bf4 e5
+9.Bxe5 Bf5 10.Qb3 Nc6 11.Bxb5 Qd7 12.O-O Ne4 13.Nc3 a6 14.Ba4 Be6 15.d5 Bf5
+16.Bxc6 Qxc6 17.dxc6 Bc5 18.Bxg7 Rg8 19.Ne5 Rxg7 20.Nxe4 Bxe4 21.g3 f5
+22.Rad1 Bf3 23.Rd7 Rd8 24.Rxg7 Rd4 25.Qf7+ Kd8 26.Qg8+ Bf8 27.Qxf8+ 1-0
