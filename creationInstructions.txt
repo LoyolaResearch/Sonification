@@ -1,8 +1,25 @@
 6/27/2024
+10/8/1014 - update for solution with projects
+10/15/2024 - putting most of this in the README.mf file
+
+Create a blank solution (https://learn.microsoft.com/en-us/visualstudio/ide/creating-solutions-and-projects?view=vs-2022)
+ -Start without any project/solution
+ -On the menu bar, select File > New > Project
+ -On the Create a new project page, enter solution in the search box
+ -Select the Blank Solution template, and then select Next
+ -Enter Solution name and Location values for your solution, and then select Create
+
 Create a new project in Visual Studio
- -must be "Windows Forms App (.NET Framework)
- -set the Framework to close to 4.5 (for pgn reader to work!)
+ -must be "Windows Forms App (.NET Framework):
+ -set the Framework to close to 4.5 (for pgn reader to work!). Use 4.72
  -might as well put the solution and project in the same directory
+
+
+Create Libraries (https://learn.microsoft.com/en-us/dotnet/core/tutorials/library-with-visual-studio?pivots=dotnet-8-0)
+ -Do this for each lib separately
+ -Right-click on the solution in Solution Explorer and select Add > New Project
+ -Choose the Class Library template
+ -Select .NET 8
 
 Add your buttons and such.
 
