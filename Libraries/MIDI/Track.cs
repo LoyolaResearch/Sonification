@@ -95,6 +95,10 @@ namespace MIDI
             _beatsPerMinute = bpm;
         }
 
+        public int GetNoteCount()
+        {
+            return _notes.Count;
+        }
     }
 
 }

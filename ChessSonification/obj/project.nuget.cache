@@ -1,12 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "XEvv6shCpjM=",
+  "dgSpecHash": "i/Ylmu5d9rU=",
   "success": true,
   "projectFilePath": "C:\\Users\\scott\\Nextcloud\\_Loyola\\Research\\Sonification\\ChessSonification\\ChessSonification.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\scott\\.nuget\\packages\\chessdotnet\\0.11.0\\chessdotnet.0.11.0.nupkg.sha512",
     "C:\\Users\\scott\\.nuget\\packages\\fparsec\\1.0.4-rc3\\fparsec.1.0.4-rc3.nupkg.sha512",
-    "C:\\Users\\scott\\.nuget\\packages\\fsharp.core\\8.0.400\\fsharp.core.8.0.400.nupkg.sha512",
+    "C:\\Users\\scott\\.nuget\\packages\\fsharp.core\\8.0.300\\fsharp.core.8.0.300.nupkg.sha512",
     "C:\\Users\\scott\\.nuget\\packages\\microsoft.netcore.platforms\\3.1.0\\microsoft.netcore.platforms.3.1.0.nupkg.sha512",
     "C:\\Users\\scott\\.nuget\\packages\\microsoft.win32.registry\\4.7.0\\microsoft.win32.registry.4.7.0.nupkg.sha512",
     "C:\\Users\\scott\\.nuget\\packages\\naudio\\2.2.1\\naudio.2.2.1.nupkg.sha512",

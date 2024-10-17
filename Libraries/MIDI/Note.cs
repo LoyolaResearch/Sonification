@@ -61,18 +61,7 @@ namespace MIDI
             return true;
         }
 
-// Nora to do
-        // convert string to note (like A4, Bf2)
-        // allow for upper or lowercase and naturals specified or not. Basically, use this to call the previous function
-        public bool Set(string note, double duration = 4, int velocity = 120, string patch = "")
-        {
-            char noteName = 'A';
-            char modifier = 'n';
-            int octave = 4;
 
-            return Set(noteName, modifier, octave, duration, velocity, patch);
-        }
-        
         public override string ToString()
         {
             string str = "";

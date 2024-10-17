@@ -18,26 +18,37 @@ namespace ChessSonification
         private string? _pgnFile;
         private int _numMoves;
         private Game? _game;
+        private int _trackToUse;
+        private int _noteCountForTrack;
 
         public ChessSong()
         {
             _pgnFile = "";
             _numMoves = -1;
             _game = null;
+            _trackToUse = 0;
+            _noteCountForTrack = 0;
         }
 
-        public void StartPlayback()
+        public new void StartPlayback()
         {
-            _numTracks = _tracks.Count;
-            CalculateMicrosecondsPerQuarterNote(_beatsPerMinute);
-            _startTime = DateTime.Now;
+            if (_trackToUse > _tracks.Count)
+                return;
+            _noteCountForTrack = _tracks[_trackToUse].GetNoteCount();
+            base.StartPlayback();
+            //CalculateMicrosecondsPerQuarterNote(_beatsPerMinute);
         }
 
         public int GetCurrentMoveNumber()
         {
+            int moveNum = 0;
             _currentTime = DateTime.Now;
-            //if (_)
-            return _numMoves;
+            for (moveNum = 0; moveNum < _noteCountForTrack; moveNum++)
+            {   // now check each note if it is in the time 
+
+            }
+
+            return moveNum;
         }
     }
 
