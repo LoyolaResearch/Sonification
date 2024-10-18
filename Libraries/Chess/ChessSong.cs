@@ -41,14 +41,11 @@ namespace ChessSonification
 
         public int GetCurrentMoveNumber()
         {
-            int moveNum = 0;
-            _currentTime = DateTime.Now;
-            for (moveNum = 0; moveNum < _noteCountForTrack; moveNum++)
-            {   // now check each note if it is in the time 
-
-            }
-
-            return moveNum;
+            if (_trackToUse > _tracks.Count)
+                return 0;
+            TimeSpan timeDiff = DateTime.Now - (DateTime)_startTime;
+            double ms = timeDiff.TotalMilliseconds;
+            return _tracks[_trackToUse].GetNoteNumberAtMS(ms);
         }
     }
 

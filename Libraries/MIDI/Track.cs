@@ -14,6 +14,7 @@
 
 
 using NAudio.Midi;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.TrackBar;
 
 namespace MIDI
 {
@@ -30,6 +31,12 @@ namespace MIDI
             _currentPatch = "steel";
             _patch = new Patch();
             _beatsPerMinute = 100;
+        }
+
+        public void Clear()
+        {
+            _notes.Clear();
+            _notes = new List<Note>();
         }
 
         public void AddNote(Note nt)
@@ -98,6 +105,18 @@ namespace MIDI
         public int GetNoteCount()
         {
             return _notes.Count;
+        }
+        public int GetNoteNumberAtMS(double ms)
+        {
+            int noteNum = 0;
+            int count = _notes.Count;
+            for (noteNum = 0; noteNum < count; noteNum++)
+            {   // now check each note if it is in the time  
+                if (_notes[noteNum].IsBetween(ms))
+                    return noteNum;
+            }
+            return noteNum;
+
         }
     }
 

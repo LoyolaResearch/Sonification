@@ -54,6 +54,15 @@ namespace MIDI
             _currentTime = null;
         }
 
+        public void Clear()
+        {
+            int ct = _tracks.Count;
+            for (int i = 0; i  < ct; i++)
+                _tracks[i].Clear();
+            _tracks.Clear();
+            _tracks = new List<Track>();
+        }
+
         public bool AddNote(int track, char noteName, char modifier, int octave, double duration, int velocity = 120, string patch = "")
         {
             // First check if we need to add more tracks

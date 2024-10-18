@@ -18,13 +18,15 @@ namespace ChessSonification
 {
     public partial class MainForm : Form
     {
-        private static System.Timers.Timer? aTimer;
+        //private static System.Timers.Timer? aTimer;
+        static System.Windows.Forms.Timer myTimer = new System.Windows.Forms.Timer();
 
         string pgnFilename = "Kasparov.pgn";
         string outputFilename = "testmid.mid";
         int currentGameNumber;
         int currentMoveNumber;
         PictureBox[,] pieces;
+        ChessSong mySong;
 
         protected Graphics? myGraphics;
 
@@ -35,6 +37,7 @@ namespace ChessSonification
         {
             InitializeComponent();
             games = new GameList();
+            mySong = new ChessSong();
             gameDb = null;
             currentGameNumber = -1;
             currentMoveNumber = -1;
@@ -61,9 +64,45 @@ namespace ChessSonification
                 }
             }
 
+            myTimer.Tick += new EventHandler(TimerEventProcessor);
+
+            // Sets the timer interval to 50 ms.
+            myTimer.Interval = 50;
+            //myTimer.Start();
+            //myTimer.Stop();
 
         }
 
+        private void TimerEventProcessor(Object myObject, EventArgs myEventArgs)
+        {
+            if (player.playState == WMPLib.WMPPlayState.wmppsPlaying)
+            {
+                if (currentGameNumber < 0) return;
+                if (currentMoveNumber < 0) return;
+                int moveNum = mySong.GetCurrentMoveNumber();
+                if (moveNum < games.GetMoveCount(currentGameNumber))
+                    lstMoves.SelectedIndex = moveNum;
+
+            }
+        }
+        //myTimer.Stop();
+
+        // Displays a message box asking whether to continue running the timer.
+        //if (MessageBox.Show("Continue running?", "Count is: " + alarmCounter,
+        //   MessageBoxButtons.YesNo) == DialogResult.Yes)
+        //{
+        // Restarts the timer and increments the counter.
+        //    alarmCounter += 1;
+        //    myTimer.Enabled = true;
+        //}
+        //else
+        //{
+        // Stops the timer.
+        //    exitFlag = true;
+        //}
+
+
+        /*
         private void SetTimer()
         {
             // Create a timer with a two second interval.
@@ -78,7 +117,14 @@ namespace ChessSonification
         {
             if (player.playState == WMPLib.WMPPlayState.wmppsPlaying)
             {
-                Console.WriteLine("Currently playing at {0:HH:mm:ss.fff}", e.SignalTime);
+                if (currentGameNumber < 0) return;
+                if (currentMoveNumber < 0) return;
+                int moveNum = mySong.GetCurrentMoveNumber();
+                if (moveNum < games.GetMoveCount(currentGameNumber))
+                    lstMoves.SelectedIndex = moveNum;
+                //Console.WriteLine("move" + mySong.GetCurrentMoveNumber());
+
+                    //Console.WriteLine("Currently playing at {0:HH:mm:ss.fff}", e.SignalTime);
             }
             else
             {
@@ -87,6 +133,7 @@ namespace ChessSonification
                 //aTimer.Dispose();
             }
         }
+        */
 
         private void btnLoadPGN_Click(object sender, EventArgs e)
         {
@@ -154,7 +201,7 @@ namespace ChessSonification
             player.URL = "";
             //if (currentGameNumber != -1)
             {
-                ChessSong mySong = new ChessSong();
+                mySong.Clear();
                 /*
 
                     Game? g = games.GetGame(currentGameNumber); // can be null... maybe check?
@@ -230,9 +277,11 @@ namespace ChessSonification
 
         private void btnPlay_Click(object sender, EventArgs e)
         {
+            mySong.StartPlayback();
             //player.URL = outputFilename;
             player.Ctlcontrols.play();
-            SetTimer();
+            myTimer.Start();
+            //SetTimer();
         }
 
         private void btnPause_Click(object sender, EventArgs e)

@@ -1,4 +1,7 @@
-﻿/// <summary>
+﻿
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.TrackBar;
+
+/// <summary>
 /// Note.cs
 /// 
 /// Encapsulate the various parts of a note.
@@ -116,7 +119,10 @@ namespace MIDI
             _startTime = start;
             _endTime = end;
         }
-
+        public bool IsBetween(double ms)
+        {
+            return (ms >= _startTime && ms <= _endTime);
+        }
     }
 
  
