@@ -48,6 +48,7 @@
             btnStop = new Button();
             imgBoard = new PictureBox();
             lblMessages = new Label();
+            chkTwoNote = new CheckBox();
             ((System.ComponentModel.ISupportInitialize)player).BeginInit();
             ((System.ComponentModel.ISupportInitialize)imgBoard).BeginInit();
             SuspendLayout();
@@ -236,6 +237,17 @@
             lblMessages.TabIndex = 14;
             lblMessages.Text = "              ";
             // 
+            // chkTwoNote
+            // 
+            chkTwoNote.AutoSize = true;
+            chkTwoNote.Location = new Point(12, 231);
+            chkTwoNote.Name = "chkTwoNote";
+            chkTwoNote.Size = new Size(76, 19);
+            chkTwoNote.TabIndex = 12;
+            chkTwoNote.Text = "Two Note";
+            chkTwoNote.UseVisualStyleBackColor = true;
+            chkTwoNote.CheckedChanged += chkTwoNote_CheckedChanged;
+            // 
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -244,6 +256,7 @@
             Controls.Add(lblMessages);
             Controls.Add(imgBoard);
             Controls.Add(chkIncludeBlack);
+            Controls.Add(chkTwoNote);
             Controls.Add(chkIncludeWhite);
             Controls.Add(chkIsMono);
             Controls.Add(btnPrevMove);
@@ -288,5 +301,6 @@
         private Button btnStop;
         private PictureBox imgBoard;
         private Label lblMessages;
+        private CheckBox chkTwoNote;
     }
 }

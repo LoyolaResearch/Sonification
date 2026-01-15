@@ -1,4 +1,5 @@
 using ilf.pgn.Data;
+using MIDI;
 using PgnToFenCore;
 using PgnToFenCore.Conversion;
 
@@ -66,11 +67,8 @@ namespace ChessSonification
 
             myTimer.Tick += new EventHandler(TimerEventProcessor);
 
-            // Sets the timer interval to 50 ms.
-            myTimer.Interval = 50;
-            //myTimer.Start();
-            //myTimer.Stop();
-
+            // Sets the timer interval to 20 ms.
+            myTimer.Interval = 20;
         }
 
         private void TimerEventProcessor(Object myObject, EventArgs myEventArgs)
@@ -79,61 +77,16 @@ namespace ChessSonification
             {
                 if (currentGameNumber < 0) return;
                 if (currentMoveNumber < 0) return;
-                int moveNum = mySong.GetCurrentMoveNumber();
-                if (moveNum < games.GetMoveCount(currentGameNumber))
+                int numTracks = mySong.GetTrackCount();
+                int moveNum = mySong.GetCurrentMoveNumber() * numTracks;
+                int gameMoves = games.GetMoveCount(currentGameNumber);
+                if (moveNum < gameMoves)
+                {
                     lstMoves.SelectedIndex = moveNum;
-
+                    lblMessages.Text = "move: " + moveNum;
+                }
             }
         }
-        //myTimer.Stop();
-
-        // Displays a message box asking whether to continue running the timer.
-        //if (MessageBox.Show("Continue running?", "Count is: " + alarmCounter,
-        //   MessageBoxButtons.YesNo) == DialogResult.Yes)
-        //{
-        // Restarts the timer and increments the counter.
-        //    alarmCounter += 1;
-        //    myTimer.Enabled = true;
-        //}
-        //else
-        //{
-        // Stops the timer.
-        //    exitFlag = true;
-        //}
-
-
-        /*
-        private void SetTimer()
-        {
-            // Create a timer with a two second interval.
-            aTimer = new System.Timers.Timer(100);
-            // Hook up the Elapsed event for the timer. 
-            aTimer.Elapsed += OnTimedEvent;
-            aTimer.AutoReset = true;
-            aTimer.Enabled = true;
-        }
-
-        private void OnTimedEvent(Object source, ElapsedEventArgs e)
-        {
-            if (player.playState == WMPLib.WMPPlayState.wmppsPlaying)
-            {
-                if (currentGameNumber < 0) return;
-                if (currentMoveNumber < 0) return;
-                int moveNum = mySong.GetCurrentMoveNumber();
-                if (moveNum < games.GetMoveCount(currentGameNumber))
-                    lstMoves.SelectedIndex = moveNum;
-                //Console.WriteLine("move" + mySong.GetCurrentMoveNumber());
-
-                    //Console.WriteLine("Currently playing at {0:HH:mm:ss.fff}", e.SignalTime);
-            }
-            else
-            {
-                Console.WriteLine("Stopped playing at {0:HH:mm:ss.fff}", DateTime.Now);
-                aTimer.Stop();
-                //aTimer.Dispose();
-            }
-        }
-        */
 
         private void btnLoadPGN_Click(object sender, EventArgs e)
         {
@@ -202,39 +155,99 @@ namespace ChessSonification
             //if (currentGameNumber != -1)
             {
                 mySong.Clear();
-                /*
 
-                    Game? g = games.GetGame(currentGameNumber); // can be null... maybe check?
-                    Move? move = null;
-                    bool isMono = chkIsMono.Checked;
-                    bool includeWhite = chkIncludeWhite.Checked;
-                    bool includeBlack = chkIncludeBlack.Checked;
-                    int numMoves = games.GetMoveCount(currentGameNumber);
-                    int distance = 0;
-                    char ch = 'C';
-                    int whiteBlack = 0;
-                    int trackNumber = 0;
-                    bool isWhite = true;
-                    for (int i = 1; i < numMoves; i++)
+
+                Game? g = games.GetGame(currentGameNumber); // can be null... maybe check?
+                Move? move = null;
+                bool isMono = chkIsMono.Checked;
+                bool includeWhite = chkIncludeWhite.Checked;
+                bool includeBlack = chkIncludeBlack.Checked;
+                int numMoves = games.GetMoveCount(currentGameNumber);
+                int distance = 0;
+                int startRow = 0;
+                int endRow = 0;
+                char noteChar1 = 'C';
+                char noteChar2 = 'C';
+                //int whiteBlack = 0;
+                int trackNumber = 0;
+                double noteLength1 = 0.25;
+                double noteLength2 = 0.25;
+
+
+                // First, figure out how many notes per move
+                if (chkTwoNote.Checked)
+                    mySong.SetNotesPerMove(2.0 * (isMono ? 1.0 : 2.0));
+                else if (!includeWhite && !includeBlack) // nothing to play, duh...
+                    mySong.SetNotesPerMove(0.0);
+                else if ((includeWhite && !includeBlack) || (!includeWhite && includeBlack)) // just one track...
+                    mySong.SetNotesPerMove(0.5);
+                else if (!isMono)
+                    mySong.SetNotesPerMove(2.0);//(1.0 / ((includeWhite ? 1 : 0) + (includeBlack ? 1 : 0)));
+                else
+                    mySong.SetNotesPerMove(1.0);
+
+
+                for (int i = 1; i < numMoves; i++) //skip the initial move (board setup)
+                {
+                    //Fix this!!
+                    move = games.GetMove(currentGameNumber, i);
+                    if (move == null) return;
+                    distance = games.GetMoveDistance(currentGameNumber, i);
+                    startRow = move.StartRow();
+                    endRow = move.EndRow();
+
+                    // Play two notes per side.... Ignore other parameters
+                    //use first location and second location of each note to determine two notes, first long, then short
+                    if (chkTwoNote.Checked)
                     {
-                        move = games.GetMove(currentGameNumber, i);
-                        distance = games.GetMoveDistance(currentGameNumber, i);
-                        //isWhite = move.
-                        ch = (char)('C' + distance);
-                        if (ch > 'G')
-                            ch = (char)('A' + (ch - 'H'));
-                        Console.WriteLine("Note: voice: " + whiteBlack + ", " + ch + "4" + " (distance of " + distance + ")");
-                        if ((whiteBlack == 0 && includeWhite) && !mySong.AddNote(whiteBlack, ch, 'n', 4, 0.25))
-                        {
-                            Console.WriteLine("ERROR! " + i + "->" + distance);
-                        }
-                        if (!isMono && whiteBlack == 0) whiteBlack = 1;
-                        else whiteBlack = 0;
+                        trackNumber = 0;
+                        noteLength2 = 0.1875;
+                        noteLength1 = 0.0625;
+                        if (!isMono)
+                            if (move.IsWhite()) trackNumber = 1;
+                            else trackNumber = 0;
+                        noteChar1 = (char)('C' + startRow);
+                        if (noteChar1 > 'G') noteChar1 = (char)('A' + (noteChar1 - 'H'));
+                        noteChar2 = (char)('C' + endRow);
+                        if (noteChar2 > 'G') noteChar2 = (char)('A' + (noteChar2 - 'H'));
+                        mySong.AddNote(trackNumber, noteChar1, 'n', 4, noteLength1);
+                        mySong.AddNote(trackNumber, noteChar2, 'n', 4, noteLength2);
                     }
-                    mySong.SaveToFile(outputFilename);
 
+                    // Play a normal note...
+                    else
+                    {
+                        noteChar1 = (char)('C' + distance);
+                        if (noteChar1 > 'G') noteChar1 = (char)('A' + (noteChar1 - 'H'));
 
-                */
+                        // figure out the track number first
+                        if (isMono)
+                        {
+                            trackNumber = 0;
+                        }
+                        else if (includeWhite && includeBlack)
+                        {
+                            if (move.IsWhite()) trackNumber = 1;
+                            else trackNumber = 0;
+                        }
+                        else
+                        {
+                            mySong.SetNotesPerMove(0.5);
+                        }
+
+                        if (includeWhite && move.IsWhite())
+                        {
+                            mySong.AddNote(trackNumber, noteChar1, 'n', 4, noteLength1);
+                        }
+                        else if (includeBlack && !move.IsWhite())
+                        {
+                            mySong.AddNote(trackNumber, noteChar1, 'n', 4, noteLength1);
+                        }
+                    }
+                }
+                mySong.SaveToFile(outputFilename);
+
+                /*
                 mySong.AddNote(0, 'D', 'n', 4, 0.25); mySong.AddNote(1, 'F', 'n', 4, 0.25);
                 mySong.AddNote(0, 'B', 'n', 4, 0.25); mySong.AddNote(1, 'G', 'n', 4, 0.25);
                 mySong.AddNote(0, 'C', 'n', 4, 0.25); mySong.AddNote(1, 'E', 'n', 4, 0.25);
@@ -269,8 +282,10 @@ namespace ChessSonification
                 mySong.AddNote(0, 'B', 'n', 4, 0.25); mySong.AddNote(1, 'C', 'n', 5, 0.25);
                 mySong.AddNote(0, 'C', 'n', 4, 0.25); mySong.AddNote(1, 'C', 'n', 5, 0.25);
                 mySong.AddNote(0, 'C', 'n', 4, 0.25); mySong.AddNote(1, 'C', 'n', 5, 0.25);
+               
                 mySong.SaveToFile(outputFilename);
                 lblMessages.Text = "time: " + mySong.GetDuration() + "ms";
+                */
             }
 
         }
@@ -281,7 +296,6 @@ namespace ChessSonification
             //player.URL = outputFilename;
             player.Ctlcontrols.play();
             myTimer.Start();
-            //SetTimer();
         }
 
         private void btnPause_Click(object sender, EventArgs e)
@@ -375,6 +389,13 @@ namespace ChessSonification
                     }
                 }
             }
+        }
+
+        private void chkTwoNote_CheckedChanged(object sender, EventArgs e)
+        {
+            chkIncludeBlack.Enabled = !chkTwoNote.Checked;
+            chkIncludeWhite.Enabled = !chkTwoNote.Checked;
+            //chkIsMono.Enabled = !chkTwoNote.Checked;
         }
     }
 

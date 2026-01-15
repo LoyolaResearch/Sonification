@@ -2,6 +2,7 @@
 
 
 
+using MIDI;
 using System.Timers;
 
 
@@ -10,11 +11,13 @@ namespace NumbersSonification
 {
     public partial class MainForm : Form
     {
-        private static System.Timers.Timer? aTimer;
+        static System.Windows.Forms.Timer myTimer = new System.Windows.Forms.Timer();
 
         string outputFilename = "testmid.mid";
         string inputFileName = "";
+        MIDI.Song mySong;
 
+        string numberString;
 
         protected Graphics? myGraphics;
 
@@ -23,35 +26,33 @@ namespace NumbersSonification
         public MainForm()
         {
             InitializeComponent();
+            mySong = new MIDI.Song();
+            numberString = string.Empty;
+
             player.URL = outputFilename;
             player.Ctlcontrols.stop();
-        }
 
-        private void SetTimer()
-        {
-            // Create a timer with a two second interval.
-            aTimer = new System.Timers.Timer(100);
-            // Hook up the Elapsed event for the timer. 
-            aTimer.Elapsed += OnTimedEvent;
-            aTimer.AutoReset = true;
-            aTimer.Enabled = true;
-        }
+            myTimer.Tick += new EventHandler(TimerEventProcessor);
+            myTimer.Interval = 10;
 
-        private void OnTimedEvent(Object source, ElapsedEventArgs e)
+        }
+        private void TimerEventProcessor(Object myObject, EventArgs myEventArgs)
         {
-            if (player.playState == WMPLib.WMPPlayState.wmppsPlaying)
+            if (player != null && player.playState == WMPLib.WMPPlayState.wmppsPlaying)
             {
-                Console.WriteLine("Currently playing at {0:HH:mm:ss.fff}", e.SignalTime);
-            }
-            else
-            {
-                Console.WriteLine("Stopped playing at {0:HH:mm:ss.fff}", DateTime.Now);
-                aTimer.Stop();
-                //aTimer.Dispose();
+                int noteNum = 0;
+                Note currentNote = mySong.GetCurrentNote(ref noteNum);
+                int numNotes = mySong.GetNoteCount();
+                if (currentNote != null)
+                {
+                    //lblMessages.Text = "Note at " + (noteNum + 1) + " of " + numNotes + ": \'" + numberString[noteNum] + "\' - " + currentNote + " ms";
+                    lblMessages.Text = "Note at " + (noteNum + 1) + " of " + numNotes + ": (" + currentNote + ")";
+                }
             }
         }
 
-        private void btnLoadFile_Click(object sender, EventArgs e)
+
+        private void btnLoadTxtFile_Click(object sender, EventArgs e)
         {
             OpenFileDialog openFileDialog1 = new OpenFileDialog();
             //openFileDialog1.InitialDirectory = @"C:\";
@@ -67,61 +68,96 @@ namespace NumbersSonification
             inputFileName = openFileDialog1.FileName;
 
             if (inputFileName == "") return;
-
+            string? tmpString;
+            numberString = "";
+            lblFeedback.Text = "";
+            // now read the number from the file
+            // https://learn.microsoft.com/en-us/troubleshoot/developer/visualstudio/csharp/language-compilers/read-write-text-file
+            try
+            {
+                StreamReader sr = new StreamReader(inputFileName);
+                tmpString = sr.ReadLine();
+                while (tmpString != null)
+                {
+                    lblFeedback.Text += tmpString + "\n";
+                    numberString += tmpString + "\n";
+                    tmpString = sr.ReadLine();
+                }
+                sr.Close();
+            }
+            catch (Exception er) { Console.WriteLine("Exception: " + er.Message); }
 
         }
         private void btnGenerateMIDI_Click(object sender, EventArgs e)
         {
+            if (numberString == null || numberString == "") return;
+            mySong.Clear();
 
             player.URL = "";
+            int length = numberString.Length;
+
+
+            if (radioSimple.Checked)
             {
-                MIDI.Song mySong = new MIDI.Song();
-
-                mySong.AddNote(0, 'D', 'n', 4, 0.25); mySong.AddNote(1, 'F', 'n', 4, 0.25);
-                mySong.AddNote(0, 'B', 'n', 4, 0.25); mySong.AddNote(1, 'G', 'n', 4, 0.25);
-                mySong.AddNote(0, 'C', 'n', 4, 0.25); mySong.AddNote(1, 'E', 'n', 4, 0.25);
-                mySong.AddNote(0, 'B', 'n', 4, 0.25); mySong.AddNote(1, 'F', 'n', 4, 0.25);
-                mySong.AddNote(0, 'D', 'n', 4, 0.25); mySong.AddNote(1, 'F', 'n', 4, 0.25);
-                mySong.AddNote(0, 'C', 'n', 5, 0.25); mySong.AddNote(1, 'F', 'n', 4, 0.25);
-                mySong.AddNote(0, 'F', 'n', 4, 0.25); mySong.AddNote(1, 'G', 'n', 4, 0.25);
-                mySong.AddNote(0, 'F', 'n', 4, 0.25); mySong.AddNote(1, 'E', 'n', 4, 0.25);
-                mySong.AddNote(0, 'C', 'n', 4, 0.25); mySong.AddNote(1, 'E', 'n', 4, 0.25);
-                mySong.AddNote(0, 'F', 'n', 4, 0.25); mySong.AddNote(1, 'G', 'n', 4, 0.25);
-                mySong.AddNote(0, 'C', 'n', 4, 0.25); mySong.AddNote(1, 'F', 'n', 4, 0.25);
-                mySong.AddNote(0, 'C', 'n', 5, 0.25); mySong.AddNote(1, 'F', 'n', 4, 0.25);
-                mySong.AddNote(0, 'E', 'n', 4, 0.25); mySong.AddNote(1, 'E', 'n', 4, 0.25);
-                mySong.AddNote(0, 'C', 'n', 5, 0.25); mySong.AddNote(1, 'B', 'n', 4, 0.25);
-                mySong.AddNote(0, 'C', 'n', 4, 0.25); mySong.AddNote(1, 'E', 'n', 4, 0.25);
-                mySong.AddNote(0, 'B', 'n', 4, 0.25); mySong.AddNote(1, 'F', 'n', 4, 0.25);
-                mySong.AddNote(0, 'C', 'n', 4, 0.25); mySong.AddNote(1, 'G', 'n', 4, 0.25);
-                mySong.AddNote(0, 'B', 'n', 4, 0.25); mySong.AddNote(1, 'G', 'n', 4, 0.25);
-                mySong.AddNote(0, 'E', 'n', 4, 0.25); mySong.AddNote(1, 'G', 'n', 4, 0.25);
-                mySong.AddNote(0, 'F', 'n', 4, 0.25); mySong.AddNote(1, 'G', 'n', 4, 0.25);
-                mySong.AddNote(0, 'F', 'n', 4, 0.25); mySong.AddNote(1, 'G', 'n', 4, 0.25);
-                mySong.AddNote(0, 'C', 'n', 5, 0.25); mySong.AddNote(1, 'B', 'n', 4, 0.25);
-                mySong.AddNote(0, 'C', 'n', 4, 0.25); mySong.AddNote(1, 'C', 'n', 4, 0.25);
-                mySong.AddNote(0, 'C', 'n', 5, 0.25); mySong.AddNote(1, 'C', 'n', 5, 0.25);
-                mySong.AddNote(0, 'C', 'n', 4, 0.25); mySong.AddNote(1, 'B', 'n', 4, 0.25);
-                mySong.AddNote(0, 'C', 'n', 5, 0.25); mySong.AddNote(1, 'B', 'n', 4, 0.25);
-                mySong.AddNote(0, 'C', 'n', 4, 0.25); mySong.AddNote(1, 'C', 'n', 4, 0.25);
-                mySong.AddNote(0, 'B', 'n', 4, 0.25); mySong.AddNote(1, 'F', 'n', 4, 0.25);
-                mySong.AddNote(0, 'G', 'n', 4, 0.25); mySong.AddNote(1, 'B', 'n', 4, 0.25);
-                mySong.AddNote(0, 'F', 'n', 4, 0.25); mySong.AddNote(1, 'B', 'n', 4, 0.25);
-                mySong.AddNote(0, 'E', 'n', 4, 0.25); mySong.AddNote(1, 'C', 'n', 5, 0.25);
-                mySong.AddNote(0, 'B', 'n', 4, 0.25); mySong.AddNote(1, 'C', 'n', 5, 0.25);
-                mySong.AddNote(0, 'C', 'n', 4, 0.25); mySong.AddNote(1, 'C', 'n', 5, 0.25);
-                mySong.AddNote(0, 'C', 'n', 4, 0.25); mySong.AddNote(1, 'C', 'n', 5, 0.25);
-                mySong.SaveToFile(outputFilename);
-                lblMessages.Text = "time: " + mySong.GetDuration() + "ms";
+                char ch = 'C';
+                int num = 0;
+                int track = 0;
+                double duration = 0.25;
+                int currentNote = 0;
+                int numTracks = tbNumTracks.Value;
+                for (int i = 0; i < length; i++)
+                {
+                    if (chkNotePerLine.Checked)
+                    {
+                        String s = "";
+                        Int64 num2;
+                        while (numberString[i] != '\n')
+                        {
+                            s += numberString[i];
+                            i++;
+                        }
+                        s += '\0';
+                        if (Int64.TryParse(s, out num2))
+                        {
+                            num = (int)(num2 % 8);
+                            lblMessages.Text = "num: " + num;
+                        }
+                    }
+                    else
+                    {
+                        if (chkUseDuration.Checked && (i + 1) < length) // make sure there is still a note after this to use
+                        {
+                            num = numberString[i] - '0';
+                            if (num < 0 || num > 9) num = 0;
+                            if (num < 1) duration = 0.125;
+                            else if (num < 4) duration = 0.250;
+                            else if (num < 8) duration = 0.500;
+                            else duration = 1.000;
+                            i++;
+                        }
+                        num = numberString[i] - '0';
+                    }
+                    if (num < 0 || num > 9) num = 0;
+                    ch = (char)('C' + num);
+                    if (ch > 'G')
+                        ch = (char)('A' + (ch - 'H'));
+                    track = currentNote % numTracks;
+                    currentNote++;
+                    mySong.AddNote(track, ch, 'n', 4, duration);
+                }
             }
+            //else if (radTwoNote.Checked)
 
+            mySong.SaveToFile(outputFilename);
+            lblMessages.Text = "time: " + mySong.GetDuration() + "ms";
         }
 
         private void btnPlay_Click(object sender, EventArgs e)
         {
-            player.URL = outputFilename;
+            mySong.StartPlayback();
+            //player.URL = outputFilename;
             player.Ctlcontrols.play();
-            SetTimer();
+            myTimer.Start();
         }
 
         private void btnPause_Click(object sender, EventArgs e)
@@ -132,12 +168,11 @@ namespace NumbersSonification
         private void btnStop_Click(object sender, EventArgs e)
         {
             player.Ctlcontrols.stop();
-
         }
 
-        private void btnLoadTxtFile_Click(object sender, EventArgs e)
+        private void tbNumTracks_Scroll(object sender, EventArgs e)
         {
-
+            lblNumTracks.Text = "Number of Tracks (" + tbNumTracks.Value + "):";
         }
     }
 
